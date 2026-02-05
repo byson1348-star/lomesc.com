@@ -4,155 +4,516 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>連洋船舶工程有限公司 | 船舶節能與環保技術</title>
-
-  <meta name="description" content="連洋船舶工程有限公司（台灣）提供船舶仲介、新造船支援、船舶修理及節能減排環保技術，致力於提升船舶營運效率。" />
+  <meta name="description" content="連洋船舶工程有限公司（台灣）提供船舶仲介、新造船支援、船舶修理與改裝，以及船舶節能與減排的環保技術解決方案。" />
 
   <style>
-    /* ===== 동일 스타일 (영문 페이지와 완전 동일) ===== */
+    :root{
+      --bg:#061613;
+      --card:#0b241f;
+      --card2:#08201b;
+      --text:#eaf7f2;
+      --muted:#b4d7cc;
+      --line:rgba(255,255,255,.14);
+      --accent:#2ecc71;
+      --accent2:#00b894;
+      --shadow:0 16px 46px rgba(0,0,0,.50);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
     body{
       margin:0;
       font-family: "Noto Sans TC", system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      color:#eaf7f2;
-      background:#061613;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 20% 0%, rgba(46,204,113,.16), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(0,184,148,.14), transparent 55%),
+        linear-gradient(180deg, #03110f, var(--bg));
     }
     a{ color:inherit; text-decoration:none; }
+
+    /* ===== Fixed background layer (parallax-like, works on mobile) ===== */
     .bg-fixed{
       position:fixed;
       inset:0;
-      z-index:-1;
+      z-index:-2;
       background:
-        linear-gradient(90deg, rgba(6,22,19,.92), rgba(6,22,19,.75)),
+        radial-gradient(1200px 700px at 20% 10%, rgba(46,204,113,.18), transparent 60%),
+        radial-gradient(1000px 650px at 85% 20%, rgba(0,184,148,.16), transparent 55%),
+        linear-gradient(90deg, rgba(6,22,19,.92) 0%, rgba(6,22,19,.82) 45%, rgba(6,22,19,.70) 100%),
         url("hero-lian-ocean-eco.png");
       background-size:cover;
       background-position:center;
+      background-repeat:no-repeat;
+      filter:saturate(1.06) contrast(1.06);
+      transform:scale(1.02);
     }
+    .bg-fixed::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,.20);
+    }
+
+    .wrap{ max-width:1140px; margin:0 auto; padding:26px 18px 70px; }
+
+    /* ===== Header ===== */
     header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
       position:sticky;
       top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(3,17,15,.62);
+      border-bottom:1px solid var(--line);
+      padding:12px 18px;
+      margin:-26px -18px 20px;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 260px;
+    }
+
+    .brand-logo{
+      height:48px;
+      width:auto;
+      display:block;
+      object-fit:contain;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,.35));
+    }
+
+    nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center; }
+    nav a{
+      color:var(--muted);
+      font-weight:900;
+      font-size:13px;
+      padding:9px 12px;
+      border-radius:14px;
+      border:1px solid transparent;
+      white-space:nowrap;
+    }
+    nav a:hover{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border-color:rgba(255,255,255,.12);
+    }
+
+    /* language pill */
+    .lang{
+      margin-left:6px;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:1000;
+      color:#a3ffcf;
+      border:1px solid rgba(163,255,207,.35);
+      background:rgba(163,255,207,.08);
+    }
+    .lang:hover{ background:rgba(163,255,207,.16); color:#fff; }
+
+    /* ===== Hero ===== */
+    .hero{
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      position:relative;
+      padding:28px;
+      background:rgba(6,22,19,.62);
+      backdrop-filter: blur(6px);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--muted);
+      font-weight:1000;
+      font-size:12px;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.05);
+      padding:9px 12px;
+      border-radius:999px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 3px rgba(255,255,255,.06);
+    }
+
+    h1{
+      margin:16px 0 10px;
+      font-size:44px;
+      line-height:1.06;
+      letter-spacing:-.4px;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.75;
+      margin:0 0 18px;
+      max-width:60ch;
+    }
+
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:1000;
+      font-size:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.20); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(46,204,113,.95), rgba(0,184,148,.92));
+      color:#04110e;
+      border:none;
+    }
+
+    .stat{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.05);
+    }
+    .stat b{ display:block; font-size:16px; letter-spacing:.1px; }
+    .stat span{ color:var(--muted); font-size:13px; line-height:1.55; display:block; margin-top:4px; }
+
+    .pill{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--muted);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.2px;
+      margin-top:14px;
+    }
+    .pill i{ width:8px; height:8px; border-radius:99px; background:#a3ffcf; }
+
+    /* ===== Sections ===== */
+    section{ margin-top:20px; }
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:12px;
+      margin:18px 0 10px;
+    }
+    .section-title h2{ margin:0; font-size:18px; letter-spacing:.2px; }
+    .section-title p{ margin:0; color:var(--muted); font-size:13px; }
+
+    .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .card{
+      background:rgba(11,36,31,.78);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .box{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.045);
+    }
+    .box h3{ margin:0 0 8px; font-size:16px; }
+    .box p{ margin:0; color:var(--muted); font-size:14px; line-height:1.65; }
+
+    .two{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    .panel{ padding:18px; }
+    .panel h3{ margin:0 0 10px; font-size:16px; }
+    .list{ margin:0; padding:0 0 0 18px; color:var(--muted); line-height:1.8; font-size:14px; }
+
+    .highlight{
+      margin-top:14px;
+      padding:18px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(900px 500px at 20% 20%, rgba(46,204,113,.18), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(0,184,148,.14), transparent 60%),
+        rgba(255,255,255,.04);
+    }
+    .highlight strong{ color:#a3ffcf; }
+
+    /* ===== Contact ===== */
+    .contact{
+      padding:18px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      align-items:start;
+    }
+    .info{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:14px;
+    }
+    .info a{ text-decoration:underline; }
+
+    footer{
+      margin-top:26px;
+      padding:18px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.14);
       display:flex;
       justify-content:space-between;
-      align-items:center;
-      padding:12px 18px;
-      background:rgba(3,17,15,.65);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.15);
-    }
-    .brand-logo{ height:46px; }
-    nav a{
-      margin-left:12px;
-      font-weight:800;
+      gap:12px;
+      flex-wrap:wrap;
       font-size:13px;
-      color:#b4d7cc;
-    }
-    nav a:hover{ color:#fff; }
-    section{ padding:60px 20px; max-width:1100px; margin:auto; }
-    h1{ font-size:38px; line-height:1.2; }
-    h2{ margin-top:0; }
-    p{ color:#b4d7cc; line-height:1.8; }
-    .box{
-      background:rgba(255,255,255,.05);
-      padding:20px;
+      background:rgba(3,17,15,.40);
       border-radius:16px;
-      border:1px solid rgba(255,255,255,.15);
-      margin-bottom:18px;
     }
-    footer{
-      text-align:center;
-      padding:20px;
-      color:#b4d7cc;
-      border-top:1px solid rgba(255,255,255,.15);
+
+    @media (max-width:920px){
+      header{ position:relative; }
+      .hero-grid{ grid-template-columns:1fr; }
+      h1{ font-size:34px; }
+      .grid3,.two,.contact{ grid-template-columns:1fr; }
+      .brand{ min-width:auto; }
+      .brand-logo{ height:42px; }
+      nav{ justify-content:flex-end; }
     }
   </style>
 </head>
 
 <body>
-<div class="bg-fixed"></div>
+  <div class="bg-fixed" aria-hidden="true"></div>
 
-<header>
-  <img src="/logo.png" alt="連洋船舶工程有限公司" class="brand-logo">
-  <nav>
-    <a href="#services">服務項目</a>
-    <a href="#technology">節能技術</a>
-    <a href="#about">關於我們</a>
-    <a href="#contact">聯絡我們</a>
-    <a href="/index.html">EN</a>
-  </nav>
-</header>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <img src="/logo.png" alt="連洋船舶工程有限公司 Lian Ocean Shipbuilding & Engineering Co., Ltd." class="brand-logo">
+      </div>
 
-<section>
-  <h1>
-    船舶節能與環保技術<br>
-    打造永續海事未來
-  </h1>
-  <p>
-    連洋船舶工程有限公司致力於協助船東與營運商提升燃油效率、
-    降低排放，並透過實務導向的工程技術，
-    提供完整的船舶解決方案。
-  </p>
-</section>
+      <nav>
+        <a href="#services">服務項目</a>
+        <a href="#technology">節能技術</a>
+        <a href="#about">關於我們</a>
+        <a href="#contact">聯絡我們</a>
+        <a href="https://mail.lomesc.com" target="_blank" rel="noreferrer">Webmail</a>
+        <a href="/index.html" class="lang">EN</a>
+      </nav>
+    </header>
 
-<section id="services">
-  <h2>服務項目</h2>
+    <!-- HERO -->
+    <main class="hero" id="top">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker"><span class="dot"></span> MARINE EFFICIENCY • CLEAN OPERATIONS • PRACTICAL EXECUTION</div>
+          <h1>船舶節能與環保技術<br>打造永續海事未來。</h1>
+          <p class="lead">
+            我們協助船東與營運商提升燃油效率並降低排放。
+            從船舶仲介、新造船到修理與改裝，以工程實務為導向，
+            支援更潔淨、更高效的海事營運。
+          </p>
 
-  <div class="box">
-    <h3>船舶仲介</h3>
-    <p>
-      提供船舶搜尋、市場分析、交易協調及合約支援，
-      協助買賣雙方順利完成交易。
-    </p>
+          <div class="cta">
+            <a class="btn primary" href="mailto:michelle@lomesc.com?subject=Inquiry%20-%20Lian%20Ocean">聯絡我們</a>
+            <a class="btn" href="#technology">了解節能技術</a>
+            <a class="btn" href="#services">查看服務項目</a>
+          </div>
+
+          <div class="pill"><i></i> 重點</div>
+          <div style="margin-top:10px; color:var(--muted); font-size:13px; line-height:1.65;">
+            節省燃油 • 降低排放 • 方便改裝導入 • 文件與合規支援
+          </div>
+        </div>
+
+        <div>
+          <div class="stat">
+            <b>船舶仲介</b>
+            <span>提供船舶搜尋、市場分析與交易協調，協助買賣雙方順利完成交易。</span>
+          </div>
+          <div style="height:10px;"></div>
+          <div class="stat">
+            <b>新造船與建造監督</b>
+            <span>規格對齊、船廠/供應商協調，並於建造階段提供工程技術支援。</span>
+          </div>
+          <div style="height:10px;"></div>
+          <div class="stat">
+            <b>船舶修理與改裝</b>
+            <span>以最小停航時間為目標，提供修船規劃與節能改裝執行支援。</span>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-title">
+        <h2>服務項目</h2>
+        <p>涵蓋仲介、新造船支援與修理改裝的一站式服務。</p>
+      </div>
+
+      <div class="grid3">
+        <div class="box">
+          <h3>船舶仲介</h3>
+          <p>包含船舶搜尋、評估、市場分析、議價協調與交易文件支援。</p>
+        </div>
+
+        <div class="box">
+          <h3>新造船支援</h3>
+          <p>從規格審查、介面條件到供應商管理與交付準備的專案協調支援。</p>
+        </div>
+
+        <div class="box">
+          <h3>船舶修理與改裝</h3>
+          <p>修船規劃、改裝工程與試俥/交付支援，強調安全、合規與營運連續性。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENERGY SAVING TECH -->
+    <section id="technology">
+      <div class="section-title">
+        <h2>船舶節能與環保技術</h2>
+        <p>以實際成效為導向，降低燃油消耗與排放。</p>
+      </div>
+
+      <div class="highlight">
+        <div style="font-weight:1000; font-size:16px; margin-bottom:8px;">
+          核心價值：<strong>降低燃油成本</strong> + <strong>降低排放</strong> + <strong>提升營運效率</strong>
+        </div>
+        <div style="color:var(--muted); line-height:1.7; font-size:14px;">
+          我們支援節能項目從可行性評估到船廠現場落地，
+          重視可整合性、可量化成效與後續維護便利性。
+        </div>
+      </div>
+
+      <div class="two" style="margin-top:14px;">
+        <div class="card panel">
+          <h3>常見支援範圍</h3>
+          <ul class="list">
+            <li>節能效益評估與改裝規劃</li>
+            <li>節能設備與系統整合支援</li>
+            <li>電氣/儀控介面條件定義</li>
+            <li>文件交付：圖面、工作包、FAT/SAT 支援</li>
+            <li>試車與驗收協助、結案文件整理</li>
+          </ul>
+        </div>
+
+        <div class="card panel">
+          <h3>適用情境</h3>
+          <ul class="list">
+            <li>在役船舶：追求節油與降低排放</li>
+            <li>新造船：導入節能設計與系統整合</li>
+            <li>修理窗口：短停航時間完成改裝</li>
+            <li>船東：重視合規與長期 OPEX 降低</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title">
+        <h2>關於我們</h2>
+        <p>以執行力與信任為核心的海事夥伴。</p>
+      </div>
+
+      <div class="two">
+        <div class="card panel">
+          <h3>公司簡介</h3>
+          <p style="margin:0; color:var(--muted); line-height:1.75; font-size:14px;">
+            <b style="color:var(--text);">連洋船舶工程有限公司</b>（台灣）提供船舶仲介、
+            新造船支援與船舶修理服務，結合市場經驗與工程實務，
+            提供可落地且可驗證成效的海事解決方案。
+          </p>
+          <div style="margin-top:12px; color:var(--muted); font-size:13px; line-height:1.6;">
+            標語：<i>Connecting Maritime Excellence</i>
+          </div>
+        </div>
+
+        <div class="card panel">
+          <h3>為何選擇連洋</h3>
+          <ul class="list">
+            <li>範圍清晰、工程務實、現場可執行</li>
+            <li>以效率為先：節油與減排並重</li>
+            <li>文件完善、交付可控、協調到位</li>
+            <li>兼顧船東與船廠的實際限制</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card contact">
+      <div>
+        <div class="section-title" style="margin:0 0 10px;">
+          <h2>聯絡我們</h2>
+          <p>請提供船型、時程與需求範圍，以利快速回覆。</p>
+        </div>
+
+        <div class="info">
+          <p style="margin:0; color:var(--muted); line-height:1.75;">
+            電子郵件：<a href="mailto:michelle@lomesc.com">michelle@lomesc.com</a><br />
+            地點：台灣<br />
+            Webmail：<a href="https://mail.lomesc.com" target="_blank" rel="noreferrer">mail.lomesc.com</a>
+          </p>
+        </div>
+
+        <p style="margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.6;">
+          建議內容：船名/船型、範圍（仲介／新造船／修理改裝／節能方案）、目標時程，以及相關圖面或規格。
+        </p>
+      </div>
+
+      <div>
+        <div class="info">
+          <p style="margin:0; font-weight:1000;">快速聯絡</p>
+          <p style="margin:10px 0 0; color:var(--muted); line-height:1.7; font-size:13px;">
+            <a href="mailto:michelle@lomesc.com?subject=仲介需求%20-%20連洋">船舶仲介需求</a><br />
+            <a href="mailto:michelle@lomesc.com?subject=新造船支援%20-%20連洋">新造船支援</a><br />
+            <a href="mailto:michelle@lomesc.com?subject=修理改裝%20-%20連洋">修理／改裝需求</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> 連洋船舶工程有限公司（Lian Ocean Shipbuilding & Engineering Co., Ltd.）</div>
+      <div>
+        <a href="#services" style="text-decoration:underline;">服務項目</a> ·
+        <a href="#technology" style="text-decoration:underline;">節能技術</a> ·
+        <a href="https://mail.lomesc.com" target="_blank" rel="noreferrer" style="text-decoration:underline;">Webmail</a>
+      </div>
+    </footer>
   </div>
 
-  <div class="box">
-    <h3>新造船支援</h3>
-    <p>
-      從規格審查、船廠溝通到建造監督，
-      提供完整的新造船工程與專案協調服務。
-    </p>
-  </div>
-
-  <div class="box">
-    <h3>船舶修理與改裝</h3>
-    <p>
-      提供修船規劃、節能改裝與現場技術支援，
-      確保船舶於最短時間內恢復營運。
-    </p>
-  </div>
-</section>
-
-<section id="technology">
-  <h2>節能與環保技術</h2>
-  <p>
-    我們專注於實際可行的節能方案，
-    協助船舶降低燃油消耗、減少碳排放，
-    並符合國際法規與營運需求。
-  </p>
-</section>
-
-<section id="about">
-  <h2>關於我們</h2>
-  <p>
-    連洋船舶工程有限公司設立於台灣，
-    結合市場經驗與工程實務，
-    提供船舶仲介、建造及修理的一站式服務。
-  </p>
-  <p><i>Connecting Maritime Excellence</i></p>
-</section>
-
-<section id="contact">
-  <h2>聯絡我們</h2>
-  <p>
-    電子郵件：
-    <a href="mailto:michelle@lomesc.com">michelle@lomesc.com</a><br>
-    地點：台灣
-  </p>
-</section>
-
-<footer>
-  © <span id="y"></span> 連洋船舶工程有限公司
-</footer>
-
-<script>
-  document.getElementById("y").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
