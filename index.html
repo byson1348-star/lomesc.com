@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lian Ocean Shipbuilding & Engineering | Energy-Saving Marine Solutions</title>
+  <meta name="description" content="Lian Ocean Shipbuilding & Engineering (Taiwan) provides ship brokerage, newbuilding, and ship repair services, featuring eco-friendly energy-saving technology for marine efficiency." />
+
+  <!-- Optional: Social preview -->
+  <meta property="og:title" content="Lian Ocean Shipbuilding & Engineering" />
+  <meta property="og:description" content="Ship Brokerage • Newbuilding • Ship Repair • Eco-Friendly Energy Saving Technology" />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      /* Eco-friendly marine palette */
+      --bg:#061613;            /* deep green-navy */
+      --card:#0b241f;          /* hull green */
+      --card2:#0a1f1c;         /* darker section */
+      --text:#eaf7f2;
+      --muted:#b4d7cc;
+      --line:rgba(255,255,255,.14);
+
+      --accent:#2ecc71;        /* clean energy green */
+      --accent2:#00b894;       /* teal green */
+      --accent3:#a3ffcf;       /* soft mint */
+
+      --shadow:0 16px 46px rgba(0,0,0,.50);
+      --radius:18px;
+    }
+
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 20% 0%, rgba(46,204,113,.16), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(0,184,148,.14), transparent 55%),
+        linear-gradient(180deg, #03110f, var(--bg));
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:1140px; margin:0 auto; padding:26px 18px 70px; }
+
+    /* Header */
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background:rgba(3,17,15,.62);
+      border-bottom:1px solid var(--line);
+      padding:14px 18px;
+      margin:-26px -18px 22px;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:900; letter-spacing:.2px; }
+    .logo{
+      width:42px; height:42px; border-radius:14px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: var(--shadow);
+      position:relative; overflow:hidden;
+    }
+    .logo:before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 45%);
+      transform: rotate(25deg);
+      opacity:.55;
+    }
+    .brand-title{ font-size:14px; line-height:1.2; }
+    .brand-sub{ color:var(--muted); font-weight:800; font-size:12px; letter-spacing:.3px; }
+
+    nav{ display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; }
+    nav a{
+      color:var(--muted);
+      font-weight:900;
+      font-size:13px;
+      padding:9px 12px;
+      border-radius:14px;
+      border:1px solid transparent;
+    }
+    nav a:hover{
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      border-color:rgba(255,255,255,.12);
+    }
+
+    /* Hero with premium ship image */
+    .hero{
+      border-radius:var(--radius);
+      overflow:hidden;
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      position:relative;
+      min-height: 440px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      align-items:stretch;
+    }
+
+    /* You can swap this image to any premium ship image you own or a licensed one.
+       This uses an Unsplash "source" URL (auto-hosted by Unsplash). */
+    .hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(90deg, rgba(6,22,19,.88) 0%, rgba(6,22,19,.78) 45%, rgba(6,22,19,.70) 100%),
+        radial-gradient(900px 500px at 20% 20%, rgba(46,204,113,.22), transparent 55%),
+        radial-gradient(900px 500px at 85% 20%, rgba(0,184,148,.18), transparent 55%),
+        url("hero-ship.png");
+      background-size: cover;
+      background-position: center;
+      filter: saturate(1.05) contrast(1.02);
+      transform: scale(1.02);
+    }
+
+    .hero > *{ position:relative; z-index:2; }
+    .hero-left{ padding:30px; }
+    .hero-right{ padding:22px; display:flex; flex-direction:column; gap:12px; }
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      color:var(--muted);
+      font-weight:1000;
+      font-size:12px;
+      letter-spacing:.7px;
+      text-transform:uppercase;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.05);
+      padding:9px 12px;
+      border-radius:999px;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow:0 0 0 3px rgba(255,255,255,.06);
+    }
+
+    h1{
+      margin:16px 0 10px;
+      font-size:44px;
+      line-height:1.06;
+      letter-spacing:-.4px;
+    }
+    .lead{
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.75;
+      margin:0 0 18px;
+      max-width:60ch;
+    }
+
+    .cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:1000;
+      font-size:14px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.06);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      user-select:none;
+    }
+    .btn:hover{ transform:translateY(-1px); background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.20); }
+
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(46,204,113,.95), rgba(0,184,148,.92));
+      color:#04110e;
+      border:none;
+    }
+    .btn.primary:hover{ filter:saturate(1.05); }
+
+    .stat{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(6,22,19,.48);
+      backdrop-filter: blur(6px);
+    }
+    .stat b{ display:block; font-size:16px; letter-spacing:.1px; }
+    .stat span{ color:var(--muted); font-size:13px; line-height:1.55; display:block; margin-top:4px; }
+
+    .pill{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:7px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--muted);
+      font-weight:900;
+      font-size:12px;
+      letter-spacing:.2px;
+      margin-top:16px;
+    }
+    .pill i{
+      width:8px; height:8px; border-radius:99px;
+      background:var(--accent3);
+    }
+
+    /* Sections */
+    section{ margin-top:20px; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:12px;
+      margin:18px 0 10px;
+    }
+    .section-title h2{ margin:0; font-size:18px; letter-spacing:.2px; }
+    .section-title p{ margin:0; color:var(--muted); font-size:13px; }
+
+    .grid3{ display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .card{
+      background:rgba(11,36,31,.78);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .box{
+      padding:18px;
+      border-radius:18px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.045);
+      position:relative;
+      overflow:hidden;
+    }
+    .box:before{
+      content:"";
+      position:absolute; inset:-60% -60% auto auto;
+      width:180px; height:180px; border-radius:999px;
+      background: radial-gradient(circle at 30% 30%, rgba(46,204,113,.22), transparent 55%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .box h3{ margin:0 0 8px; font-size:16px; }
+    .box p{ margin:0; color:var(--muted); font-size:14px; line-height:1.65; }
+
+    .two{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    .panel{ padding:18px; }
+    .panel h3{ margin:0 0 10px; font-size:16px; }
+    .list{ margin:0; padding:0 0 0 18px; color:var(--muted); line-height:1.8; font-size:14px; }
+
+    /* Highlight band */
+    .highlight{
+      margin-top:14px;
+      padding:18px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.14);
+      background:
+        radial-gradient(900px 500px at 20% 20%, rgba(46,204,113,.18), transparent 60%),
+        radial-gradient(900px 500px at 85% 20%, rgba(0,184,148,.14), transparent 60%),
+        rgba(255,255,255,.04);
+    }
+    .highlight strong{ color:var(--accent3); }
+
+    /* Contact */
+    .contact{
+      padding:18px;
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:14px;
+      align-items:start;
+    }
+    .info{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:14px;
+    }
+    .info a{ text-decoration:underline; }
+
+    footer{
+      margin-top:26px;
+      padding:18px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.14);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+      font-size:13px;
+    }
+
+    @media (max-width:920px){
+      header{ position:relative; }
+      .hero{ grid-template-columns:1fr; min-height:auto; }
+      h1{ font-size:34px; }
+      .grid3,.two,.contact{ grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="brand-title">Lian Ocean Shipbuilding & Engineering</div>
+          <div class="brand-sub">Taiwan • Ship Brokerage • Newbuilding • Ship Repair</div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#technology">Energy Saving Tech</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://mail.lomesc.com" target="_blank" rel="noreferrer">Webmail</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <main class="hero" aria-label="Main hero section">
+      <div class="hero-left">
+        <div class="kicker"><span class="dot"></span> Marine efficiency • Clean operations • Practical execution</div>
+
+        <h1>Eco-Friendly Energy Saving Technology<br>for Modern Ships.</h1>
+
+        <p class="lead">
+          We help ship owners and operators improve fuel efficiency and reduce emissions.
+          From brokerage to newbuilding and repair, our engineering-driven approach supports cleaner,
+          smarter marine operations.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="mailto:admin@lomesc.com?subject=Request%20-%20Lian%20Ocean%20Shipbuilding%20%26%20Engineering">Contact Sales</a>
+          <a class="btn" href="#technology">Explore Technology</a>
+          <a class="btn" href="#services">View Services</a>
+        </div>
+
+        <div class="pill"><i></i> Focus</div>
+        <div style="margin-top:10px; color:var(--muted); font-size:13px; line-height:1.65;">
+          Fuel saving • Emission reduction • Retrofit-ready solutions • Documentation & compliance support
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="stat">
+          <b>Ship Brokerage</b>
+          <span>Market support, vessel sourcing, and structured deal coordination for buyers and sellers.</span>
+        </div>
+        <div class="stat">
+          <b>Newbuilding & Supervision</b>
+          <span>Specification alignment, vendor coordination, and build support across key engineering scopes.</span>
+        </div>
+        <div class="stat">
+          <b>Ship Repair & Retrofit</b>
+          <span>Efficient repair planning and retrofit execution with a focus on minimizing downtime.</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>End-to-end support across brokerage, construction, and repair.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="box">
+          <h3>Ship Brokerage</h3>
+          <p>
+            Brokerage support including vessel search, evaluation, negotiation coordination,
+            and transaction documentation.
+          </p>
+        </div>
+
+        <div class="box">
+          <h3>Shipbuilding (Newbuilding)</h3>
+          <p>
+            Engineering and project coordination for new builds: specifications, interfaces,
+            vendor management, and delivery readiness.
+          </p>
+        </div>
+
+        <div class="box">
+          <h3>Ship Repair & Retrofit</h3>
+          <p>
+            Repair planning, retrofit works, and commissioning support with emphasis on safety,
+            compliance, and operational continuity.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENERGY SAVING TECH -->
+    <section id="technology">
+      <div class="section-title">
+        <h2>Eco-Friendly Energy Saving Technology</h2>
+        <p>Efficiency-first solutions to reduce fuel consumption and emissions.</p>
+      </div>
+
+      <div class="highlight">
+        <div style="font-weight:1000; font-size:16px; margin-bottom:8px;">
+          Main Value: <strong>Lower Fuel Cost</strong> + <strong>Lower Emissions</strong> + <strong>Improved Operational Efficiency</strong>
+        </div>
+        <div style="color:var(--muted); line-height:1.7; font-size:14px;">
+          We support energy-saving initiatives from early feasibility to shipyard execution.
+          Our approach prioritizes practical integration, measurable outcomes, and maintainability.
+        </div>
+      </div>
+
+      <div class="two" style="margin-top:14px;">
+        <div class="card panel">
+          <h3>Typical scope</h3>
+          <ul class="list">
+            <li>Fuel efficiency assessment and retrofit planning</li>
+            <li>Integration support for energy-saving equipment and systems</li>
+            <li>Electrical & instrumentation interface definition</li>
+            <li>Documentation: drawings, work packages, FAT/SAT support</li>
+            <li>Commissioning assistance and close-out deliverables</li>
+          </ul>
+        </div>
+
+        <div class="card panel">
+          <h3>Best-fit applications</h3>
+          <ul class="list">
+            <li>Operational vessels targeting fuel savings and lower emissions</li>
+            <li>Newbuild projects aiming for energy efficiency by design</li>
+            <li>Repair/retrofit windows requiring short downtime</li>
+            <li>Owners focusing on compliance and long-term OPEX reduction</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+        <p>Marine business built on execution and trust.</p>
+      </div>
+
+      <div class="two">
+        <div class="card panel">
+          <h3>Who we are</h3>
+          <p style="margin:0; color:var(--muted); line-height:1.75; font-size:14px;">
+            <b style="color:var(--text);">Lian Ocean Shipbuilding & Engineering</b> is a Taiwan-based marine company
+            providing ship brokerage, shipbuilding support, and ship repair services.
+            We combine market insight with engineering practicality to deliver results.
+          </p>
+        </div>
+
+        <div class="card panel">
+          <h3>Why Lian Ocean</h3>
+          <ul class="list">
+            <li>Clear scope, practical engineering, and on-site execution</li>
+            <li>Focus on efficiency: fuel savings and emission reduction</li>
+            <li>Reliable documentation and coordinated delivery</li>
+            <li>Aligned with shipowner and shipyard constraints</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card contact">
+      <div>
+        <div class="section-title" style="margin:0 0 10px;">
+          <h2>Contact</h2>
+          <p>Tell us your vessel type, timeline, and scope.</p>
+        </div>
+
+        <div class="info">
+          <p style="margin:0; color:var(--muted); line-height:1.75;">
+            Email: <a href="mailto:admin@lomesc.com">admin@lomesc.com</a><br />
+            Location: Taiwan<br />
+            Webmail: <a href="https://mail.lomesc.com" target="_blank" rel="noreferrer">mail.lomesc.com</a>
+          </p>
+        </div>
+
+        <p style="margin:10px 0 0; color:var(--muted); font-size:13px; line-height:1.6;">
+          Recommended: include vessel name/type, scope (brokerage / newbuilding / repair / retrofit),
+          target schedule, and any drawings/specifications.
+        </p>
+      </div>
+
+      <div>
+        <div class="info">
+          <p style="margin:0; font-weight:1000;">Quick actions</p>
+          <p style="margin:10px 0 0; color:var(--muted); line-height:1.7; font-size:13px;">
+            <a href="mailto:admin@lomesc.com?subject=Brokerage%20Inquiry%20-%20Lian%20Ocean">Brokerage inquiry</a><br />
+            <a href="mailto:admin@lomesc.com?subject=Newbuilding%20Support%20-%20Lian%20Ocean">Newbuilding support</a><br />
+            <a href="mailto:admin@lomesc.com?subject=Repair%20%26%20Retrofit%20-%20Lian%20Ocean">Repair / retrofit</a>
+          </p>
+        </div>
+
+        <div class="info" style="margin-top:14px;">
+          <p style="margin:0; font-weight:1000;">Note on images</p>
+          <p style="margin:10px 0 0; color:var(--muted); line-height:1.6; font-size:13px;">
+            This hero image is loaded from an external URL. If you have a licensed premium ship image,
+            replace the URL in the CSS (<code>.hero::before</code>) with your image link for full brand control.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Lian Ocean Shipbuilding & Engineering. All rights reserved.</div>
+      <div>
+        <a href="#services" style="text-decoration:underline;">Services</a> ·
+        <a href="#technology" style="text-decoration:underline;">Energy Saving Tech</a> ·
+        <a href="https://mail.lomesc.com" target="_blank" rel="noreferrer" style="text-decoration:underline;">Webmail</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
